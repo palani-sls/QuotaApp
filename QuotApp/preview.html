@@ -1,0 +1,224 @@
+<div  class="container">
+
+  <button type="button" style="margin:8px;" class="btn btn-outline-dark btn-sm" ng-click="backToPrevious(serverDataList, ipDataList, internetDataList, vpcDataList, vpnDataList)">Back</button>
+
+
+</div>
+<form>
+<div id="form" class="container container-box">
+
+​
+  <!-- <ng-repeat="infos in info"> -->
+  <!--Date : {{infos.date}}
+  Quoter Name : {{infos.quoterName}}-->
+​
+<div class="address">
+  <br>
+  <br>
+<div class="row">
+  <div class="col-8">
+  <p>A-31-9 Menara UOA Bangsar<br>
+    No.5, Jalan Bangsar Utama 1<br>
+    59000 Kuala Lumpur, Malaysia<br>
+    Phone: +603 2856 0519</p>
+  </div>
+  <div class="col-4">
+    <p><b>DATE:</b>{{infos.date}}<br>
+      <b>Quatation #:</b> ABCD-180101<br>
+      <b>rev:</b> 0<br>
+      <b>Customer ID:</b>{{infos.custID}}</p>
+    </div>
+  </div>
+  </div>
+​
+<div class="customer">
+  <b>Delivered To:</b><br>
+  <br>
+</div>
+<div class="row">
+  <div class="col-8">
+    <p><b>Name:</b> {{infos.custName}}<br>
+    <b>Company:</b> {{infos.custCom}}<br>
+    <b>eMail:</b>{{infos.custMail}}<br>
+    <b>Phone:</b> {{infos.custPhone}}<br>
+    <b>Address:</b>{{infos.custAdd}}</p>
+  </div>
+  <div class="col-4">
+    <p><i>Quatation valid until:</i> April 1,2018<br>
+      <i>Prepared by:</i>{{infos.qouterInitial}}<br>
+    </div>
+</div>
+​
+<div class="customer">
+  <b>Project:</b>{{infos.selPro}} <br>
+  <br>
+</div>
+​
+<!-- <div class="container"> -->
+  <table  class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <!-- <th>Item #</th> -->
+        <th>Description</th>
+        <th>Est./mo</th>
+        <th>Currency</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="tableRowColor">
+      <!-- <td><br><br><br><br><br><br>1<br><br><br>2</td> -->
+      <td>
+        <table class="table">
+          <!--<thead class="thead-light">-->
+            <tr class="table-success">
+              <th>Server</th>
+              <th>Site</th>
+              <th>Env</th>
+              <th>Disk Type</th>
+              <th>vCPU</th>
+              <th>Mem</th>
+              <th>Disk</th>
+              <th>Public IP</th>
+              <th>Unit Cost/hr</th>
+              <th>Est.Unit Cost/mo</th>
+            </tr>
+          <!--</thead>-->
+          <tbody>
+            <tr class="tableRowColor" ng-repeat="server in serverDataList">
+              <td>{{server.name}}</td>
+              <td>{{server.site}}</td>
+              <td>{{server.environment}}</td>
+              <td>{{server.diskType}}</td>
+              <td>{{server.cpu}}</td>
+              <td>{{server.mem}}</td>
+              <td>{{server.disk}}</td>
+              <td>{{server.ipQty}}</td>
+              <td>{{server.hcost}}</td>
+              <td>{{server.mcost}}</td>
+            </tr>
+​
+            </tbody>
+          </table></td>
+          <td ><br /><br /><br /><br /><div ng-repeat="server in serverDataList"><br />{{server.tmcost}}</div></td>
+          <td ><br /><br /> <br /><br /><div ng-repeat="server in serverDataList"><br />{{server.currency}}</div></td>
+        </tr>
+​
+        <tr class="tableRowColor">
+          <!-- <td><br><br><br>3</td> -->
+          <td>
+            <table class="table" >
+            <!--<thead class="thead-light">-->
+              <tr class="table-success">
+                <th>Site</th>
+                <th>Env</th>
+                <th>Qty Pub IP</th>
+                <th>Public IP /hr</th>
+              </tr>
+            <!--</thead>-->
+            <tbody>
+              <tr class="tableRowColor" ng-repeat="ip in ipDataList">
+                <td>{{ip.site}}</td>
+                <td>{{ip.environment}}</td>
+                <td>{{ip.quantity}}</td>
+                <td>{{ip.hcost}}</td>
+              </tr>
+​
+            </tbody>
+          </table></td>
+          <td ><br /><br /><br /><div ng-repeat="ip in ipDataList"><br />{{ip.tmcost}}</div></td>
+          <td ><br /> <br /><br /><div ng-repeat="ip in ipDataList"><br />{{ip.currency}}</div></td>
+        </tr>
+​
+        <tr class="tableRowColor">
+          <!-- <td><br><br><br>4</td> -->
+          <td>
+            <table class="table" >
+              <!--<thead class="thead-light">-->
+                <tr class="table-success">
+                  <th>Site</th>
+                  <th>Env</th>
+                  <th>Estimated Internet Traffic</th>
+                  <th>Network IN/OUT rate /GB</th>
+                </tr>
+              <!--</thead>-->
+              <tbody>
+                <tr class="tableRowColor" ng-repeat="internet in internetDataList">
+                  <td>{{internet.site}}</td>
+                  <td>{{internet.environment}}</td>
+                  <td>{{internet.iTEstimate}}</td>
+                  <td>{{internet.rate}}</td>
+                </tr>
+​
+              </tbody>
+            </table></td>
+            <td ><br /><br /><br /><div ng-repeat="internet in internetDataList"><br />{{internet.tmcost}}</div></td>
+            <td ><br /> <br /><br /><div ng-repeat="internet in internetDataList"><br />{{internet.currency}}</div></td>
+        </tr>
+​
+        <tr class="tableRowColor">
+          <!-- <td><br><br><br>5</td> -->
+          <td>
+            <table class="table" >
+              <!--<thead class="thead-light">-->
+                <tr class="table-success">
+                  <th>Site</th>
+                  <th>Env</th>
+                  <th>Qty VPC</th>
+                  <th>VPC /hr</th>
+                </tr>
+              <!--</thead>-->
+              <tbody>
+                <tr class="tableRowColor" ng-repeat="vpc in vpcDataList">
+                  <td>{{vpc.site}}</td>
+                  <td>{{vpc.environment}}</td>
+                  <td>{{vpc.quantity}}</td>
+                  <td>{{vpc.hcost}}</td>
+                </tr>
+​
+              </tbody>
+            </table></td>
+            <td ><br /><br /><br /><div ng-repeat="vpc in vpcDataList"><br />{{vpc.tmcost}}</div></td>
+            <td ><br /> <br /><br /><div ng-repeat="vpc in vpcDataList"><br />{{vpc.currency}}</div></td>
+        </tr>
+​
+        <tr class="tableRowColor">
+          <!-- <td><br><br><br>6</td> -->
+          <td>
+            <table class="table" >
+              <!--<thead class="thead-light">-->
+                <tr class="table-success">
+                  <th>Site</th>
+                  <th>Env</th>
+                  <th>Qty VPN</th>
+                  <th>VPN Connection /hr</th>
+                </tr>
+              <!--</thead>-->
+              <tbody>
+                <tr class="tableRowColor" ng-repeat="vpn in vpnDataList">
+                  <td>{{vpn.site}}</td>
+                  <td>{{vpn.environment}}</td>
+                  <td>{{vpn.quantity}}</td>
+                  <td>{{vpn.hcost}}</td>
+                </tr>
+​
+              </tbody>
+            </table></td>
+            <td ><br /><br /><br /><div ng-repeat="vpn in vpnDataList"><br />{{vpn.tmcost}}</div></td>
+            <td ><br /> <br /><br /><div ng-repeat="vpn in vpnDataList"><br />{{vpn.currency}}</div></td>
+        </tr>
+        <tr class="tableRowColor">
+          <!-- <td><br><br><br>6</td> -->
+          <td>
+            <h4 style="text-align:right;"> Total:</h4>
+          </td>
+            <td >{{getTotal()}}</td>
+            <td >MYR</td>
+        </tr>
+​
+      </tbody>
+    </table>
+  <!-- </div> -->
+​
+
+    </div>
+      </form>

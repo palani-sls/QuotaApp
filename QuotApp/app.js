@@ -22,6 +22,14 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'ResourceListing.html',
     controller: "QuotaController"
   }).
+  when('/Preview', {
+    templateUrl: 'preview.html',
+    controller: 'QuotaController'
+  }).
+  when('/flavorForm', {
+    templateUrl: 'flavor.html',
+    controller: 'QuotaController'
+  }).
   when('/PriceTables', {
     templateUrl: 'PriceTables.html',
     controller: 'QuotaController'

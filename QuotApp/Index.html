@@ -13,6 +13,16 @@
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script> -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <link href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" rel="stylesheet" />
+  <link href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" rel="stylesheet" />
+  
+  
+​
+​
+​
+
+
   <!-- Popper JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
@@ -49,11 +59,10 @@
         </ul>
       </div>
       <div style="float: right; padding-left: 30px">
-        <button type="button" class="btn btn-outline-primary bg-light mr-1">Import</button>     
-        <button type="button" class="btn btn-outline-primary bg-light " onclick="ShowHideSwitch()">Create Quotation</button>
+        <button type="button" class="btn btn-outline-primary bg-light mr-1b">Import</button>     
+        <button type="button" class="btn btn-outline-primary bg-light" ng-click="getUserData(QuotationForm)"><a  href="#flavorForm">Create Quotation</a></button>
         <a href="#ClientForm" class="btn btn-sm btn-outline-primary bg-dark" role="button" aria-pressed="true" ng-if="!registeredClient" onclick="ShowHideSwitch()">Change Quotation User</a>
       </div>
-
     </nav>
   </div>
   <hr align="center" width="90%">
@@ -62,6 +71,13 @@
   <br><br><br><br><br><br><br><br><br>
 
 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
   <script src="vendor/angularjs/angular.min.js"></script>
   <script src="vendor/angularjs/angular-route.min.js"></script>

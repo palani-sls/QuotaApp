@@ -1,34 +1,104 @@
-app.factory("QuotaFactory", function (){
+app.factory("QuotaFactory", function () {
 
     //Persisted Objects
     var quotationFormData = {};
     var globalVars = {
-        registeredClient: false, 
+        registeredClient: false,
         registeredClientProc: false,
     };
 
-    function set(formData){
+    var serverData = [];
+    var ipData = [];
+    var iTrafficData = [];
+    var vpcData = [];
+    var vpnData = [];
+
+    function set(formData) {
         quotationFormData = formData;
     }
 
-    function get(){
+    function get() {
         return quotationFormData;
     }
 
-    function setGlobalVars(varsObj){
+    function setServer(server) {
+        serverData = server;
+    }
+
+    function getServer() {
+        return serverData;
+    }
+
+    function setIP(publicIP) {
+        ipData = publicIP;
+    }
+
+    function getIP() {
+        return ipData;
+    }
+
+    function setInternet(iTrafficList) {
+        iTrafficData = iTrafficList;
+    }
+
+    function getInternet() {
+        return iTrafficData;
+    }
+
+    function setVPC(vpcList) {
+        vpcData = vpcList;
+    }
+
+    function getVPC() {
+        return vpcData;
+    }
+
+    function setVPN(vpnList) {
+        vpnData = vpnList;
+    }
+
+    function getVPN() {
+        return vpnData;
+    }
+
+
+
+
+
+
+    function set(formData) {
+        quotationFormData = formData;
+    }
+
+    function get() {
+        return quotationFormData;
+    }
+
+    function setGlobalVars(varsObj) {
         globalVars = varsObj;
     }
 
-    function getGlobalVars(){
+    function getGlobalVars() {
         return globalVars;
     }
 
 
     return {
-        set: set, 
+        set: set,
         get: get,
-        setGlobalVars:setGlobalVars, 
-        getGlobalVars, getGlobalVars
+        setGlobalVars: setGlobalVars,
+        getGlobalVars,
+        getGlobalVars,
+        setServer: setServer,
+        getServer: getServer,
+        setIP: setIP,
+        getIP: getIP,
+        setInternet: setInternet,
+        getInternet: getInternet,
+        setVPC: setVPC,
+        getVPC: getVPC,
+        setVPN: setVPN,
+        getVPN: getVPN
 
     }
 

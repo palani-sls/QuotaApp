@@ -1,0 +1,133 @@
+*
+{
+    box-sizing: border-box;
+}
+html{
+    background-color: #f3f3f3;
+}
+body{
+    font-family: sans-serif;
+}
+.form-register
+{
+    max-width: 450px;
+    margin: 90px  auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px 30px;
+    float: left;
+}
+
+.form-register .form-row{
+    text-align: left;
+    padding: 20px 0px 0px 0px;
+}
+
+.form-register .form-title-row{
+    margin-bottom: 0px;
+}
+
+.form-register h3{
+    box-sizing: border-box;
+    color:  #4c565e;
+    font-size: 20px;
+    margin: 0;
+    text-align: left;
+}
+.form-register h1{
+    box-sizing: border-box;
+    color:  #4c565e;
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+    border-bottom: #0078da;
+}
+
+.form-register .form-row > label {
+        display: block;
+        margin-bottom: 8px;
+}
+
+.form-register input{
+    background: rgba(255, 255, 255, 0.1);
+    border: thin;
+    border-radius: 2px;
+    border-bottom:1px solid #D3D3D3;
+    border-top:1px solid #D3D3D3;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 3px;
+    background-color: #F8F8F8;
+    width: 100%;
+    color: #8a97a0;
+    box-shadow: 0 1px  0 rgb(0,0,0,0,3) inset;
+    margin-bottom: 2px;
+}
+.form-register .form-checkbox
+{
+    margin: 20px 0px 0px 0px;
+}
+.form-register .form-checkbox input{
+    margin-bottom: 0px;
+    width: auto;
+}
+
+.form-register .form-row .form-checkbox span{
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left;
+    width: 220px;
+    margin: 0;
+ }
+ 
+ /* .form-register button{
+    display: block;
+    background-color:  #f4511e;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 10px 35px;
+    border: 0;
+    margin: 25px auto 0;
+    cursor: pointer;
+} */
+
+
+@media (max-width: 900px) {
+
+     .form-register{
+        position: relative;
+        display: block;
+       
+    }
+
+
+}
+@media (max-width: 600px) {
+
+    .form-register .form-row > label {
+        display: block;
+        text-align: left;
+        padding: 0 0 4px;
+    }
+
+    .form-register input{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .form-register .form-checkbox input{
+        display: inline-block;
+        margin-left: 0;
+    }
+
+    .form-register .form-checkbox span{
+        width: 200px !important;
+    }
+
+}

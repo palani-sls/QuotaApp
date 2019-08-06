@@ -1,0 +1,155 @@
+/* html {
+
+} */
+
+body {
+  background-color: rgb(236, 231, 231)
+  /* background-image: linear-gradient(30deg, #1531a3 0%, #9afc97 100%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* overflow: hidden ; */
+}
+
+  .PrimaryContainer {
+    /* width: 500px; */
+    max-width: 50%;
+    height: 600px;
+    position: relative;
+    margin: 10px auto;
+    box-shadow: 10px 10px 15px rgba(0,0,0,.4);
+    /* border: 1px white solid; */
+  }
+
+h1 {
+  color: rgb(0, 0, 0);  
+  font: normal small-caps bold 40px/150% 'Open Sans', sans-serif;
+}
+
+.title {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(94, 51, 51, 0.3);
+  margin-top: 0px;
+  text-align: center;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 20px;
+  /* border-bottom: 1px white solid; */
+}
+
+form {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 100px;
+  background-color: rgb(255, 255, 255);
+  padding: 30px 50px;
+  /* overflow: auto; */
+  position: absolute;
+  height: 600px;
+  /* width: 60%; */
+  color: rgb(138, 138, 138);
+}
+
+input {
+  color: white;
+  padding-left: 5px;
+}
+
+
+input {
+  width: 280px;
+  height: 15px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, .3);
+  border: 1px white solid;
+  border-radius: 10px;
+}
+
+span {
+  padding-right: 10px;
+  display: inline-block;
+  width: 70px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 85px;
+}
+
+input[name="role"], 
+input[name="passion"], 
+input[name="audience"] {
+  width: 280px;
+  margin: 5px;
+}
+
+input[name="trait1"], 
+input[name="trait2"], 
+input[name="trait3"] {
+  margin: 5px 5px 10px 5px;
+}
+
+ol {
+  padding-left: 85px;
+  margin-bottom: 5px;
+}
+
+input[type=range] {
+  appearance: none;
+  width: 200px;
+  outline: none;
+  opacity: .7;
+}
+
+textarea {
+  width: 98%;
+  resize: none;
+  height: 4em;
+  border: 1px white solid;
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 5px;
+  padding-left: -5px;
+  box-sizing: border-box;
+  color: white;
+}
+
+textarea::placeholder, input[type=url]::placeholder {
+  color: white;
+  font-style: italic;
+}
+
+input[type=date] {
+  width: 100px;
+  height: 15px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, .3);
+  border: 1px white solid;
+  border-radius: 10px;
+}
+
+
+button {
+  /* background-color: rgb(102, 116, 235); */
+  border: 1px white solid;
+  color: white;
+  border-radius: 10px;
+  margin-left: 50px;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-left: 1px white solid;
+}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover {
+  background: #eee; 
+  border-radius: 10px;
+} */

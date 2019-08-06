@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="QuotaApp">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="stylesheet.css" />
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" /> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+  <!-- toastr -->
+  <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script> -->
+  <title>QuotApp</title>
+</head>
+
+<body>
+  <div class="container mt-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a class="navbar-brand" href="#"> -->
+      <i class="fa fa-dollar"></i>&nbsp;QuotaApp
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#Main">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#AltMain">Alt Main</a>
+          </li>
+          <li class="nav-item">
+            <a id="resourceLink" class="nav-link" href="#ResourceListing">Resource Listing</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#Test">Test</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#PriceTables">Pricing Tables</a>
+          </li>
+        </ul>
+      </div>
+      <div style="float: right; padding-left: 30px">
+        <button type="button" class="btn btn-outline-primary bg-light mr-1">Import</button>     
+        <button type="button" class="btn btn-outline-primary bg-light " onclick="ShowHideSwitch()">Create Quotation</button>
+        <a href="#ClientForm" class="btn btn-sm btn-outline-primary bg-dark" role="button" aria-pressed="true" ng-if="!registeredClient" onclick="ShowHideSwitch()">Change Quotation User</a>
+      </div>
+
+    </nav>
+  </div>
+  <hr align="center" width="90%">
+
+  <div ng-view=""></div>
+  <br><br><br><br><br><br><br><br><br>
+
+
+
+  <script src="vendor/angularjs/angular.min.js"></script>
+  <script src="vendor/angularjs/angular-route.min.js"></script>
+  <script src="vendor/jquery/js/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <!-- <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+
+  <script src="app.js"></script>
+  <script src="controller.js"></script>
+  <script src="factory.js"></script>
+
+
+</body>
+
+</html>

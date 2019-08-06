@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+  <title>QuotaForm</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" type="text/css" href="formstyle.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body ng-app="QuotaApp">
+  <div ng-controller="QuotaController">
+    <div class="PrimaryContainer">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-1 "></div>
+        <div class="col-md-12 col-sm-12 col-xs-1">
+
+          <!--form----------------------------------------------------------------------------------------------->
+          <form class="form-container bg-secondary text-white form" ng-submit="addForm()">
+
+            <div class="form-group row">
+              <label for="date" class="col-xs-3 col-form-label mr-2">Date:</label>
+              <div class="col-xs-9">
+                <input type="date" class="form-control" ng-model="datefromfilled" id="date" required>
+              </div>
+            </div>
+            <!--<p>Date:
+  <input type="date" class="form-control" ng-model="datefromfilled">-->
+            <div class="form-group row">
+              <label for="quoter1" class="col-md-3 col-form-label mr-2">Quoter Initials:</label>
+              <div class="col-xs-12">
+                <input type="text" class="form-control" ng-model="QuoterInitials" id="quoter1" required>
+              </div>
+            </div>
+            <!--<p>Quoter Initials:
+  <input type="text" class="form-control" ng-model="QuoterInitials">-->
+            <div class="form-group row">
+              <label for="quoter2" class="col-md-3 col-form-label mr-2">Quoter Name:</label>
+              <div class="col-xs-12">
+                <input type="text" class="form-control" ng-model="QuoterName" id="quoter2">
+              </div>
+            </div>
+            <!--<p>Quoter Name:
+  <input type="text" class="form-control" ng-model="QuoterName">-->
+            <div class="form-group row">
+              <label for="quoter3" class="col-md-3 col-form-label mr-2">Quoter Phone:</label>
+              <div class="col-xs-12">
+                <input type="tel" class="form-control" ng-model="QuoterPhone" id="quoter3"
+                  pattern="[\+]\d{2}[\-]\d{2}[\-]\d{3}[\-]\d{4}" required>
+                <span> +60-1x-xxx-xxxx</span>
+              </div>
+            </div>
+            <!--<p>Quoter Phone:
+  <input type="tel" class="form-control" ng-model="QuoterPhone" pattern="[\+]\d{2}[\-]\d{2}[\-]\d{3}[\-]\d{4}" required>
+  <span> +60-1x-xxx-xxxx</span>-->
+            <div class="form-group row">
+              <label for="quoter4" class="col-md-3 col-form-label mr-2">Quoter Email:</label>
+              <div class="col-xs-12">
+                <input type="email" class="form-control" ng-model="QuoterEmail" id="quoter4"
+                  pattern=".+@silverliningsys.com" required>
+                <span> @silverliningsys.com</span>
+              </div>
+            </div>
+            <!--<p>Quoter eMail:
+  <input type="email" class="form-control" ng-model="QuoterEmail" pattern=".+@silverliningsys.com" required>
+  <span> @silverliningsys.com</span>-->
+
+            <p> Customer ID:
+              <input type="text" class="form-control" ng-model="Customerid" maxlength="5">
+              <span class="help-block"> All CAPS, max 4-5 letters </span>
+
+              <p>Customer Name:
+                <input type="text" class="form-control" ng-model="CustomerName">
+
+                <p>Customer Company:
+                  <input type="text" class="form-control" ng-model="CustomerCompany">
+
+                  <p>Customer eMail:
+                    <input type="email" class="form-control" ng-model="CustomerEmail" required>
+
+                    <p>Customer Phone:
+                      <input type="tel" class="form-control" ng-model="CustomerPhone"
+                        pattern="[\+]\d{2}[\-]\d{2}[\-]\d{3}[\-]\d{4}" ng-required>
+                      <span class="help-block"> +60-1x-xxx-xxxx</span>
+
+                      <p>Customer Address:
+                        <textarea class="form-control" ng-model="address" rows="2" cols="40"></textarea>
+
+                        <p>Project:
+                          <select class="form-control" ng-model="selectedproject">
+                            <option value="">Select Project</option>
+                            <option>SLS Iaas Cloud</option>
+                          </select>
+                          <br>
+                          <input type="submit" class="btn btn-info" value="Enter" />
+          </form>
+          <span> {{info}} </span>
+          <span> {{CustomerCompany}} </span>
+
+
+          </p>
+          <!--the end---------------------------------------------------------------------------------------------------------->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="vendor/angularjs/angular.min.js"></script>
+<script src="vendor/angularjs/angular-route.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<!-- <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+<script src="vendor/jquery/js/jquery.min.js"></script>
+
+<script src="app.js"></script>
+<script src="controller.js"></script>
+
+
+</html>

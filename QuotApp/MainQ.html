@@ -1,0 +1,172 @@
+<div ng-Controller="QuotaController" class="container-fluid">
+  <div class="card border-secondary " style="float:left; max-width: 70rem; max-height: 60rem;">
+    <div class="card-header">Quotation Client</div>
+    <div class="card-body text-secondary">
+      <h5 class="card-title" ng-if="!registeredClient && !registeredClientProc">No Quotation Client Has Been
+        Registered. Please Register To Create A Quotation</h5>
+
+      <div class="col-12">
+        <a class="btn btn-block btn-outline-primary" ng-click="navToClientForm()" ng-if="!registeredClientProc">New
+          Quotation Client</a>
+      </div>
+
+      <div class="col-12" ng-if="registeredClientProc && !registeredClient">
+        <div>
+          <!-- class="main-content" style="justify-content: center;" -->
+          <form class="form-register">
+            <div class="form-row row">
+              <div class="col-7">
+                <!-- Blank to cater for right shifting of the lower div -->
+              </div>
+              <div class="col-5">
+                <label for="QuoteDate">Quotation Date</label>
+                <input type="date" ng-model="QuotataionForm.quoteDate" aria-required="true" required>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientId">Client ID</label>
+                <input type="text" ng-model="QuotataionForm.clientId" aria-required="true" required style="width: 50px;"
+                  maxlength=3 placeholder="XYZ">
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientName">Client Name</label>
+                <input type="text" ng-model="QuotataionForm.clientName" aria-required="true" required
+                  placeholder="Enter Name Here">
+              </div>
+              <div class="col-6">
+                <label for="clientCompany">Client Company </label>
+                <input type="text" ng-model="QuotataionForm.clientCompany" aria-required="true" required
+                  placeholder="Enter Comapny Name">
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientEmail">Client Email</label>
+                <input type="text" ng-model="QuotataionForm.clientEmail" aria-required="true" required
+                  placeholder="abc@xyz.com">
+              </div>
+              <div class="col-6">
+                <label for="clientPhone">Client PhoneNo</label>
+                <input type="text" ng-model="QuotataionForm.clientPhone" aria-required="true" required
+                  placeholder="+60 -">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <label for="clientAddress">Client Address</label><br>
+                <input type="text" ng-model="QuotataionForm.clientAddress" aria-required="true" required
+                  placeholder="Enter Your Address">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 dropdown">
+                <label for="selectedProject">Select Project</label><br>
+                <select class="select-css" ng-model="QuotataionForm.selectedProject" aria-required="true" required>
+                  <option value="" selected disabled hidden>Select A Project</option>
+                  <option>SLS Iaas Cloud</option>
+                  <option>Project A</option>
+                  <option>Project B</option>
+                </select>
+                <hr />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <a class="btn btn-block btn-outline-primary" ng-click="saveFormData(QuotataionForm); loadFormDetails()"
+                  href="#AltMain">Register Quotation Client</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div ng-if="registeredClient && registeredClientProc">
+      <!-- <table>
+        <tr ng-repeat="quoteField in QuotationForm">
+          <td>&nbsp;&nbsp;This:~{{quoteField}}</td>
+          <td>&nbsp;&nbsp;{{quoteField.clientName}}</td>
+          <td>&nbsp;&nbsp;{{quoteField.clientId}}</td>
+      </table> -->
+      <div class="card mb-5" style="width: 50rem;">
+        <div class="card-body text-dark container-fluid ml-3">
+          <h5 class="card-title text-secondary"><b>Name:</b> {{clientName}}</h5>
+          <h5 class="card-title text-secondary"><b>Company:</b> {{clientCompany}}</h5>
+          <h5 class="card-title text-secondary"><b>Email:</b> {{clientEmail}}</h5>
+          <h5 class="card-title text-secondary"><b>Phone:</b> {{clientPhone}}</h5>
+          <h5 class="card-title text-secondary"><b>Address:</b> {{clientAddress}}</h5>
+          <br>
+          <h5 class="card-title text-secondary"><b>Project:</b> {{selectedProject}}</v>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
+    <!-- ng-if="!registeredClient" -->
+    <section class="details" style="float: right; max-width: 20rem; max-height: 15rem ;">
+      <strong> If You Have Any Questions Concerning Quotations, Please Contact: <br /> {{quoterName}}</strong>
+      <p>Phone: {{quoterPhone}}</p>
+      <p>Email: {{quoterEmail}}</p>
+      <br>
+    </section>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br>
+
+  <table class="table table-hover mt-10">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Quotation Name</th>
+        <th scope="col">Creation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>SLS - Quatation 001</td>
+        <td>....</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Customer Quotation 001</td>
+        <td>...</td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+  <hr />
+
+  <section class="details" style="float: left; background-color: rgb(175, 175, 175);">
+    <h3>Disclaimer Notes:</h3>
+    <br>
+    <ol type="A">
+      <li>
+        IaaS Service Location: Malaysia (Singapore Available on request)
+      </li>
+      <li>
+        All pricing in MYR unless otherwise noted
+      </li>
+      <li>
+        Taxes are additional and not included in this price quotation
+      </li>
+      <li>
+        Quotes are for budgetary consideration only and based on: 730.5 hours per month (30.4 days per month)
+      </li>
+      <li>
+        Internal Network traffic between private subnets is unlimited
+      </li>
+      <li>
+        Windows Server 2008/2012/2016 OS Licenses included in pricing (if required)
+      </li>
+    </ol>
+  </section>
+
+
+</div>

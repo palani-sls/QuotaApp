@@ -1,0 +1,65 @@
+<div ng-Controller="QuotaController" class="container-fluid">
+  <div class="card border-secondary " style="float:left; max-width: 45rem; max-height: 58rem;">
+    <div class="card-header">Quotation User</div>
+    <div class="card-body text-secondary">
+      <h5 class="card-title">Secondary card title</h5>
+      <p class="card-text" ng-if="registeredClient">No User Has Been Registered. Do So To Begin Creating Quotations</p>
+      <p ng-hide="registeredClient"> I am truth:::: {{registeredClient}}</p>
+      <div ng-if="registeredClient">Angular</div>
+      <a class="btn btn-large btn-bg-warning" ng-hide="registeredClient" ng-click="navToClientForm()">Create A New Quotation Client</a>
+      <!-- href="#ClientForm" -->
+      <p ng-hide="registeredClient" ng-repeat="quoteField in QuotationForm">{{quoteField}}</p>
+    </div>
+  </div>
+
+  <div>
+    <section class="details" style="float: right; max-width: 20rem; max-height: 10rem ;">
+      <strong> If you have any questions concerning this quotation, please contact:
+        {{QuotationForm.quoterName}}</strong>
+      <p>Phone: {{QuotationForm.quoterPhone}}</p><br/>
+      <p>Email: {{QuotationForm.quoterEmail}}</p>
+      <br>
+    </section>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Quotation Name</th>
+        <th scope="col">Creation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>SLS - Quatation 001</td>
+        <td>....</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Customer Quotation 001</td>
+        <td>...</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+
+  <section class="details" style="float: left; background-color: rgb(175, 175, 175);">
+    <h3>Disclaimer</h3>
+    <br>
+    <ol type="1">
+      <li>
+        IaaS Service Location: Malaysia (Singapore Available on request)
+      </li>
+      <li>
+        All pricing in MYR unless otherwise noted
+      </li>
+      <li>
+        Taxes are additional and not included in this price quotation
+      </li>
+    </ol>
+  </section>
+
+
+</div>

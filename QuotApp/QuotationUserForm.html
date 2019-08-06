@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <header>
+      <link rel="stylesheet" type="text/css" href="formstyle.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </header>
+  <body>
+   <div class="container">
+      <h1 class="title">Quotation User</h1>
+        <form name="">
+          <span>Name</span> <input type="text" name="fullname" autofocus="autofocus" title="Enter your full name."/><br/>
+          <span>Email</span> <input type="email" name="email" autocompleted="on" title="Enter your email address."/><br/>
+          <p class="t1">In one sentence or less, please describe below:</p>
+          <ul>
+            <li>What do you do? <input type="text" name="role" title="Summarize what your work provides for others."/></li>
+            <li>What are your passions? <input type="text" name="passion" title="Summarize your passions as it relates to your work."/></li>
+            <li>Who is your audience? <input type="text" name="audience" title="Identify your target audience."/></li>
+            </ul>
+          <p class="instruct">How do you want your brand (personal or professional) to be known? Write three key traits below 
+            <em>(ex: reliable, creative, meticulous, etc.):</em></p>
+          <ol>
+            <li><input type="text" name="trait1" title="Trait1"/></li>
+            <li><input type="text" name="trait2" title="Trait2"/></li>
+            <li><input type="text" name="trait3" title="Trait3"/></li>
+          </ol>
+          <p>How would you best describe your brand? 
+            <em>(Please use the sliders below to change at least one adjective pairing.)</em></p>
+
+          <p><span>Modern</span> <input type="range" min="1" max="5" value="3" name="modern"> &nbsp Nostalgic</p>
+          <p><span>Subtle</span> <input type="range" min="1" max="5" value="3" name="subtle"> &nbsp Loud</p>
+          <p><span>Simple</span> <input type="range" min="1" max="5" value="3" name="simple"> &nbsp Complex</p>
+          <p><span>Serious</span> <input type="range" min="1" max="5" value="3" name="serious"> &nbsp Playful</p>
+          <p><span>Luxurious</span> <input type="range" min="1" max="5" value="3" name="luxurious"> &nbsp Modest</p>
+          <p><span>Mature</span> <input type="range" min="1" max="5" value="3" name="mature"> &nbsp Youthful</p>
+          <p><span>Masculine</span> <input type="range" min="1" max="5" value="3" name="masculine"> &nbsp Feminine</p>
+
+          <p>Optional - <em>Add a link, file, and/or description below that may 
+            help me better understand your brand:</em>
+          </p>
+          <span>Url</span> <input type="url" placeholder="Current website or inspirational/reference links"/><br/>
+          <span>Upload</span> <input type="file" /><br/>
+          <p><textarea placeholder="Type additional information here." name="details"></textarea></p>
+          <p><em>I understand that my information will not be shared with anyone else, and that this is an 
+            initial business inquiry that may take 1-2 business days to respond upon submission. </em><input type="checkbox"/></p>
+          <span>Date</span> <input type="date"/> <button type="submit" name="submit">Submit Form</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+
+    <div class="row">
+        <div class="main-content">
+            <form class="form-register">
+                <div class="form-title-row">
+                    <h1>Quota</h1>
+                </div>
+                <div class="form-row row">
+                        <div class="col-7">
+                                <!-- Blank to cater for right shifting of the lower div -->
+                            </div>
+                        <div class="col-5">
+                                <label for="QuoteDate">Quotation Date</label>
+                                <input type="date" ng-model="QuotataionForm.quoteDate" aria-required="true" required>
+                            </div>   
+                </div>
+                <div class="form-row row">
+                        <div class="col-6">
+                                <label for="QuoterInitials">Quoter Initials</label>
+                                <input type="text" ng-model="QuotataionForm.quoterInitials" aria-required="true" required style="width: 50px;" maxlength=3 placeholder="XYZ">
+                            </div>       
+                </div>
+                <div class="form-row row">
+                        <div class="col-6">
+                                <label for="QuoterName">Quoter Name</label>
+                                <input type="text" ng-model="QuotataionForm.quoterName" aria-required="true" required placeholder="SLS Employee" >
+                            </div>     
+                            <div class="col-6">
+                                    <label for="QuoterPhone">Quoter Phone </label>
+                                    <input type="text" ng-model="QuotataionForm.quoterPhone" aria-required="true" required placeholder="+" >
+                                </div>  
+                </div>
+                <div class="form-row">
+                        <div class="col-12">
+                                <label for="QuoterEmail">Quoter Email</label><br>
+                                <input type="text" ng-model="QuotataionForm.quoterEmail" aria-required="true" required placeholder="employee123" style="width: 220px;"><i>@Silverliningsys.com</i>
+                            <hr/>
+                            </div>  
+                </div>
+                <!-- <div class="form-row">
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="checkbox" aria-required="true" required>
+                        <span>I agree to everything that will happen after I submit this form.Take All my data!</span>
+                    </label>
+                </div> -->
+
+                <div class="form-row">
+                    
+                    <div class="col-12">
+                            <a class="btn btn-block btn-outline-primary" href="#Main" ng-click="saveFormData(QuotataionForm)">Proceed To Quotation</a>
+                        </div>  
+                </div>
+            </form>
+        </div>
+    </div>

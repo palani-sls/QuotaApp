@@ -12,6 +12,7 @@ app.factory("QuotaFactory", function () {
     var iTrafficData = [];
     var vpcData = [];
     var vpnData = [];
+    var quotationFlavorData=[];
 
     function set(formData) {
         quotationFormData = formData;
@@ -61,6 +62,14 @@ app.factory("QuotaFactory", function () {
         return vpnData;
     }
 
+    function setQuotation(quotationFlavorData) {
+        quotationData = quotationFlavorData;
+    }
+
+    function getQuotation() {
+        return quotationData;
+    }
+
 
 
 
@@ -98,7 +107,9 @@ app.factory("QuotaFactory", function () {
         setVPC: setVPC,
         getVPC: getVPC,
         setVPN: setVPN,
-        getVPN: getVPN
+        getVPN: getVPN,
+        setQuotation: setQuotation,
+        getQuotation: getQuotation
 
     }
 

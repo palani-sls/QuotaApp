@@ -76,10 +76,9 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
       console.log("Data Saved {}: ");
       console.log(dataToSave);
       $scope.ShowHideSwitch();
+      toastr.success("Client Details Regeistered");
     } else {
-      console.log("Error In Form");
-      console.log("navigating to main and the switch varr is at: " + $scope.registeredClient);
-      // toastr.warning("Some Fields May Be Empty");
+      toastr.warning("Some Fields May Be Empty In The Client Registration Form");
     }
   }
 

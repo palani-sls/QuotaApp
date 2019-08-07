@@ -551,6 +551,7 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
       })
       .then(function (group) {
         kendo.drawing.pdf.saveAs(group, "flavor.pdf")
+        toastr.success("PDF Downloaded");
       });
   }
 
@@ -558,6 +559,20 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
     if (QuotationForm != null) {
       QuotaFactory.set(QuotationForm);
     }
+  }
+
+  $scope.ExportText = function () {
+    var obj   = {serverList: $scope.serverList, publicIPList: $scope.publicIPList, iTrafficList: $scope.iTrafficList, vpcList: $scope.vpcList, vpnList: $scope.vpnList};
+    var data  = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+
+    var a       = document.createElement('a');
+    a.href      = 'data:' + data;
+    a.download  = 'falvorJSON.txt';
+    a.innerHTML = 'download .txt file of flavor json';
+    a.click();
+    console.log("Downloading JSON Text File");
+    toastr.success("TextFile Downloaded");
+
   }
 
 });

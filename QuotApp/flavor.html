@@ -229,7 +229,8 @@
                   {{vpn.quantity}} <i class="fa fa-close" ng-click="deleteVPN($index)"></i></button>
               </div> <br />
 
-              <button type="button" class="btn btn-info" ng-click="saveFlavorData()" name="add">Preview</button>
+              <button type="button" class="btn btn-info" ng-click="saveFlavorData(serverList, publicIPList, iTrafficList, vpcList, vpnList); preview()" name="add">Preview</button>
+
             </div>
           </div>
         </div>
@@ -245,7 +246,8 @@
         <button type="button" style="margin:8px;" class="btn btn-outline-secondary" ng-click="backToPrevious(serverDataList, ipDataList, internetDataList, vpcDataList, vpnDataList)">Back Previous</button>
       </div>
       <div class="col-6">
-        <button type="button" style="margin:8px;  position: absolute; right: 0px;" class="btn btn-outline-primary" ng-click="ExportPdf()">Export as PDF</button>
+        <button type="button" style="margin:8px;  position: absolute; right: 110px;" class="btn btn-outline-primary" ng-click="ExportPdf()">Export as PDF</button>
+        <button type="button" style="margin:8px; position: absolute; right: 0px;" class="btn btn-outline-primary" ng-click="complete()">Complete</button>
       </div>
     </div>
   </div>
@@ -276,20 +278,20 @@
       </div>
       <div class="row">
         <div class="col-8">
-          <p>Name: {{QuotationForm.quoterName}}<br>
-            Company: {{QuotationForm.customerCompany}}<br>
-            eMail: {{QuotationForm.quoterEmail}}<br>
-            Phone: {{QuotationForm.quoterPhone}}<br>
-            Address: {{QuotationForm.address}}</p>
+          <p><b>Name:</b> {{QuotationForm.clientName}}<br>
+            <b>Company:</b> {{QuotationForm.clientCompany}}<br>
+            <b>eMail:</b> {{QuotationForm.clientEmail}}<br>
+            <b>Phone:</b> {{QuotationForm.clientPhone}}<br>
+            <b>Address:</b> {{QuotationForm.clientAddress}}</p>
         </div>
         <div class="col-4">
-          <p><i>Quatation valid until:</i> April 1,2018<br>
-            <i>Prepared by:</i>{{infos.qouterInitial}}<br>
+          <p><b>Quatation valid until:</b>{{}}<br>
+            <b>Prepared by:</b>{{infos.qouterInitial}}<br>
         </div>
       </div>
       ​
       <div class="customer">
-        <b>Project: </b>SLS IaaS Cloud<br>
+        <b>Project: </b>{{QuotationForm.selectedProject}}<br>
         <br>
       </div>
       ​
@@ -310,7 +312,6 @@
             <th scope="col">Public IP</th>
             <th scope="col">Unit Cost/hr</th>
             <th scope="col">Est.Unit Cost/mo</th>
-            <th scope="col"></th>
             <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
           </tr>
         </thead>
@@ -326,7 +327,6 @@
             <td>{{server.ipQty}}</td>
             <td>{{server.hcost}}</td>
             <td>{{server.mcost}}</td>
-            <td></td>
             <td style="text-align:right;">{{server.tmcost}}</td>
           </tr>
         </tbody>
@@ -511,9 +511,9 @@
             5. Internal Network traffic between private subnets is unlimited<br />
             6. Windows Server 2008/2012/2016 OS Licenses included in pricing (if required)<br /> </p><br />
           <p>If you have any questions concerning this quotation, please contact: <br />
-            XXX YYYY <br />
-            Phone: +60-12-345-6789 <br />
-            eMail: XXXX@silverliningsys.com <br /></p><br />
+            Murya Mahmud <br />
+            Phone: +60-12-888-8230 <br />
+            eMail: murya@silverliningsys.com <br /></p><br />
         </div>
       </div>
       <h5 style="text-align:center;">THANK YOU FOR YOUR BUSINESS!</h5>

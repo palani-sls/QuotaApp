@@ -4,6 +4,14 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
   $scope.QuotationForm = QuotaFactory.get();
   $scope.GlobalVars = QuotaFactory.getGlobalVars();
 
+  $scope.serverDataList = QuotaFactory.getServer();
+  $scope.ipDataList = QuotaFactory.getIP();
+  $scope.internetDataList = QuotaFactory.getInternet();
+  $scope.vpcDataList = QuotaFactory.getVPC();
+  $scope.vpnDataList = QuotaFactory.getVPN();
+
+  // $scope.quotationDataList = QuotaFactory.getQuotation();
+
   $scope.registeredClient = $scope.GlobalVars.registeredClient;
   $scope.registeredClientProc = $scope.GlobalVars.registeredClientProc;
 
@@ -37,6 +45,23 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
   $scope.clientPhone = $scope.QuotationForm.clientPhone;
   $scope.clientAddress = $scope.QuotationForm.clientAddress;
   $scope.selectedProject = $scope.QuotationForm.selectedProject;
+
+
+  $scope.serverList = $scope.serverDataList;
+  $scope.publicIPList= $scope.ipDataList;
+  $scope.iTrafficList = $scope.internetDataList;
+  $scope.vpcList = $scope.vpcDataList;
+  $scope.vpnList = $scope.vpnDataList;
+
+  // $scope.quotationFlavor = $scope.quotationDataList;
+
+  // $scope.quotationFlavor.push({
+  //   server: $scope.serverList,
+  //   ip: $scope.publicIPList,
+  //   internet: $scope.iTrafficList,
+  //   vpc: $scope.vpcList,
+  //   vpn: $scope.vpnList
+  // })
 
 
   //all resources costs are unit cost per hour
@@ -106,11 +131,11 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
   $scope.internetTraffic = "";
   $scope.vpcQty = "";
   $scope.vpnQty = "";
-  $scope.serverList = [];
-  $scope.publicIPList = [];
-  $scope.iTrafficList = [];
-  $scope.vpcList = [];
-  $scope.vpnList = [];
+  // $scope.serverList = [];
+  // $scope.publicIPList = [];
+  // $scope.iTrafficList = [];
+  // $scope.vpcList = [];
+  // $scope.vpnList = [];
 
   $scope.serverSiteList = {
     availableOptions: [{
@@ -248,6 +273,7 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
       $scope.memorySize = "";
       $scope.diskSize = "";
       $scope.ipQty = "";
+
 
       toastr.success("Server Added");
 
@@ -387,7 +413,7 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
   }
 
   // Store the data of flavor using factory/service, in order to display in other page.
-  $scope.saveFlavorData = function () {
+  $scope.preview = function () {
 
     // QuotaFactory.setServer($scope.serverList);
     // QuotaFactory.setIP($scope.publicIPList);
@@ -404,6 +430,71 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
     // $scope.vpcDataList = QuotaFactory.getVPC();
     // $scope.vpnDataList = QuotaFactory.getVPN();
   }
+
+  $scope.saveFlavorData = function(serverList, publicIPList, iTrafficList, vpcList, vpnList){
+
+    QuotaFactory.setServer($scope.serverList);
+    QuotaFactory.setIP($scope.publicIPList);
+    QuotaFactory.setInternet($scope.iTrafficList);
+    QuotaFactory.setVPC($scope.vpcList);
+    QuotaFactory.setVPN($scope.vpnList);
+
+    // $scope.quotationFlavor.push({
+    //   serverList: $scope.serverList,
+    //   publicIPList: $scope.publicIPList,
+    //   iTrafficList: $scope.iTrafficList,
+    //   vpcList: $scope.vpcList,
+    //   vpnList: $scope.vpnList
+    // })
+  }
+  $scope.complete = function() {
+
+    $scope.quotationFlavor=[];
+
+    $scope.quotationFlavor.push({
+      server: $scope.serverList,
+      ip: $scope.publicIPList,
+      internet: $scope.iTrafficList,
+      vpc: $scope.vpcList,
+      vpn: $scope.vpnList
+    })
+
+    QuotaFactory.setQuotation($scope.quotationFlavor);
+
+    $scope.serverList = [];
+    $scope.publicIPList = [];
+    $scope.iTrafficList = [];
+    $scope.vpcList = [];
+    $scope.vpnList = [];
+
+    QuotaFactory.setServer($scope.serverList);
+    QuotaFactory.setIP($scope.publicIPList);
+    QuotaFactory.setInternet($scope.iTrafficList);
+    QuotaFactory.setVPC($scope.vpcList);
+    QuotaFactory.setVPN($scope.vpnList);
+
+    window.location = "Index.html#/AltMain";
+
+    $scope.quotationDataList = QuotaFactory.getQuotation();
+    $scope.quotationFlavor = $scope.quotationDataList;
+
+  }
+
+  // $scope.loadFlavorDetails = function () {
+  //
+  //   $scope.serverDataList = QuotaFactory.getServer();
+  //   $scope.ipDataList = QuotaFactory.getIP();
+  //   $scope.internetDataList = QuotaFactory.getInternet();
+  //   $scope.vpcDataList = QuotaFactory.getVPC();
+  //   $scope.vpnDataList = QuotaFactory.getVPN();
+  //
+  //   $scope.serverList = $scope.serverDataList;
+  //   $scope.publicIPList= $scope.ipDataList;
+  //   $scope.iTrafficList = $scope.internetDataList;
+  //   $scope.vpcList = $scope.vpcDataList;
+  //   $scope.vpnList = $scope.vpnDataList;
+  //
+  // }
 
   // Calculation of the total estimate cost for flavor
   $scope.getTotal = function () {

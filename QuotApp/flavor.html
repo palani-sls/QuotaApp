@@ -205,7 +205,7 @@
               <div style="font-size:20px;">
                 Server <br />
                 <button type="button" style="margin:8px;" ng-repeat="server in serverList" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right"
-                  title="Site: {{server.site}}, Env: {{server.environment}}, DiskType: {{server.diskType}}, cpu: {{server.cpu}}, mem: {{server.mem}}GB, disk: {{server.disk}}GB, ipQty: {{server.ipQty}}" ng-model="server.name">{{server.name}} <i
+                  title="Site: {{server.site}}, Env: {{server.environment}}, DiskType: {{server.diskType}}, cpu: {{server.cpu}}, mem: {{server.mem}}GB, disk: {{server.disk}}GB, ipQty: {{server.ipQty}}" ng-model="server.name">Name: {{server.name}} <i
                     class="fa fa-close" ng-click="deleteServer($index)"></i></button>
               </div> <br />
               <div style="font-size:20px;">
@@ -247,6 +247,7 @@
       </div>
       <div class="col-6">
         <button type="button" style="margin:8px;  position: absolute; right: 110px;" class="btn btn-outline-primary" ng-click="ExportPdf()">Export as PDF</button>
+        <button type="button" style="margin:8px;  position: absolute; right: 255px;" class="btn btn-outline-primary" ng-click="ExportText()">Export as Text</button>
         <button type="button" style="margin:8px; position: absolute; right: 0px;" class="btn btn-outline-primary" ng-click="complete()">Complete</button>
       </div>
     </div>

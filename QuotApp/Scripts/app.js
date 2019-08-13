@@ -14,6 +14,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     templateUrl: 'MainQ.html',
     controller: "clientFormController"
   }).
+  when('/LandingPage', {
+    templateUrl: 'LandingPage.html',
+    controller: "clientFormController"
+  }).
   // when('/Preview', {
   //   templateUrl: 'preview.html',
   //   controller: 'flavorFormController'

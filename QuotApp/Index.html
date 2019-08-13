@@ -23,14 +23,15 @@
           <li class="nav-item active">
             <a class="nav-link" href="#AltMain"> <span class="sr-only">(current)</span>Home</a>
           </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#LandingPage"> <span class="sr-only">(current)</span>test landing page</a>
+            </li>
         </ul>
       </div>
       <div style="float: right; padding-left: 30px">
         <button type="button" class="btn btn-outline-primary bg-light mr-1b disabled">Import</button>
         <button type="button" class="btn btn-outline-primary bg-light" ng-click="getUserData(QuotationForm)"><a
             href="#flavorForm">Create Quotation</a></button>
-        <!-- <a href="#ClientForm" class="btn btn-sm btn-outline-primary bg-dark" role="button" aria-pressed="true"
-          ng-if="!registeredClient" onclick="ShowHideSwitch()">Change Quotation User</a> -->
       </div>
     </nav>
   </div>
@@ -38,7 +39,6 @@
 
   <div ng-view=""></div>
   <br><br><br><br><br><br><br><br><br>
-
 
   <script src="vendor/angularjs/angular.min.js"></script>
   <script src="vendor/angularjs/angular-route.min.js"></script>
@@ -52,10 +52,10 @@
   <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 
   <script src="Scripts/app.js"></script>
-  <!-- <script src="Scripts/controllers/controller.js"></script> -->
   <script src="Scripts/controllers/clientForm.controller.js"></script>
   <script src="Scripts/controllers/flavorForm.controller.js"></script>
   <script src="Scripts/services/factory.js"></script>
+  <!-- <script src="Scripts/services/service.js"></script> -->
 
 
 </body>

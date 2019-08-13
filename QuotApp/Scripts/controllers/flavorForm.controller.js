@@ -9,19 +9,9 @@ app.controller('flavorFormController', function ($scope, QuotaFactory) {
     $scope.internetDataList = QuotaFactory.getInternet();
     $scope.vpcDataList = QuotaFactory.getVPC();
     $scope.vpnDataList = QuotaFactory.getVPN();
-  
-    // $scope.quotationDataList = QuotaFactory.getQuotation();
-  
+
     $scope.registeredClient = $scope.GlobalVars.registeredClient;
     $scope.registeredClientProc = $scope.GlobalVars.registeredClientProc;
-  
-    $scope.updateGlobalVars = function () {
-      $scope.GlobalVars = {
-        registeredClient: $scope.registeredClient,
-        registeredClientProc: $scope.registeredClientProc,
-      }
-      QuotaFactory.setGlobalVars($scope.GlobalVars);
-    }
   
     $scope.quoteDate = $scope.QuotationForm.quoteDate;
     $scope.clientId = $scope.QuotationForm.clientId;
@@ -31,7 +21,15 @@ app.controller('flavorFormController', function ($scope, QuotaFactory) {
     $scope.clientPhone = $scope.QuotationForm.clientPhone;
     $scope.clientAddress = $scope.QuotationForm.clientAddress;
     $scope.selectedProject = $scope.QuotationForm.selectedProject;
-  
+
+    $scope.updateGlobalVars = function () {
+        $scope.GlobalVars = {
+          registeredClient: $scope.registeredClient,
+          registeredClientProc: $scope.registeredClientProc,
+        }
+        QuotaFactory.setGlobalVars($scope.GlobalVars);
+      }
+
   
     $scope.serverList = $scope.serverDataList;
     $scope.publicIPList= $scope.ipDataList;
@@ -39,49 +37,6 @@ app.controller('flavorFormController', function ($scope, QuotaFactory) {
     $scope.vpcList = $scope.vpcDataList;
     $scope.vpnList = $scope.vpnDataList;
 
-    // $scope.saveFormData = function (dataToSave) {
-    //   if (dataToSave != null) {
-    //     QuotaFactory.set(dataToSave);
-    //     console.log("Data Saved {}: ");
-    //     console.log(dataToSave);
-    //     $scope.ShowHideSwitch();
-    //     toastr.success("Client Details Regeistered");
-    //   } else {
-    //     toastr.warning("Some Fields May Be Empty In The Client Registration Form");
-    //   }
-    // }
-  
-    // $scope.navToClientForm = function () {
-    //   $scope.registeredClientProc = true;
-    //   console.log("Creating a new client");
-    // }
-  
-    // $scope.loadFormDetails = function () {
-    //   $scope.QuotationForm = QuotaFactory.get();
-    //   console.log("Loading Form Object{}:");
-    //   console.log($scope.QuotationForm);
-  
-    //   $scope.quoteDate = $scope.QuotationForm.quoteDate;
-    //   $scope.clientId = $scope.QuotationForm.clientId;
-    //   $scope.clientName = $scope.QuotationForm.clientName;
-    //   $scope.clientCompany = $scope.QuotationForm.clientCompany;
-    //   $scope.clientEmail = $scope.QuotationForm.clientEmail;
-    //   $scope.clientPhone = $scope.QuotationForm.clientPhone;
-    //   $scope.clientAddress = $scope.QuotationForm.clientAddress;
-    //   $scope.selectedProject = $scope.QuotationForm.selectedProject;
-  
-    // }
-  
-    // $scope.ShowHideSwitch = function () {
-    //   if ($scope.QuotationForm != null) {
-    //     $scope.registeredClient = true;
-    //     $scope.registeredClientProc = true
-    //     $scope.updateGlobalVars();
-    //   } else {
-    //     console.log("Obj empty so, yea...");
-    //   }
-    // };
-  
     $scope.IsVisible = true;
     $scope.Visible = false;
   
@@ -95,11 +50,6 @@ app.controller('flavorFormController', function ($scope, QuotaFactory) {
     $scope.internetTraffic = "";
     $scope.vpcQty = "";
     $scope.vpnQty = "";
-    // $scope.serverList = [];
-    // $scope.publicIPList = [];
-    // $scope.iTrafficList = [];
-    // $scope.vpcList = [];
-    // $scope.vpnList = [];
   
     $scope.serverSiteList = {
       availableOptions: [{

@@ -1,14 +1,8 @@
-app.controller('QuotaController', function ($scope, QuotaFactory) {
+app.controller('clientFormController', function ($scope, QuotaFactory) {
 
   //form's object persisted in the factory/service
   $scope.QuotationForm = QuotaFactory.get();
   $scope.GlobalVars = QuotaFactory.getGlobalVars();
-
-  // $scope.serverDataList = QuotaFactory.getServer();
-  // $scope.ipDataList = QuotaFactory.getIP();
-  // $scope.internetDataList = QuotaFactory.getInternet();
-  // $scope.vpcDataList = QuotaFactory.getVPC();
-  // $scope.vpnDataList = QuotaFactory.getVPN();
 
   $scope.registeredClient = $scope.GlobalVars.registeredClient;
   $scope.registeredClientProc = $scope.GlobalVars.registeredClientProc;
@@ -73,47 +67,47 @@ app.controller('QuotaController', function ($scope, QuotaFactory) {
     }
   };
 
-  $scope.ExportPdf = function () {
-    kendo.drawing
-      .drawDOM("#myCanvas", {
-        paperSize: "A4",
-        margin: {
-          top: "1cm",
-          bottom: "1cm"
-        },
-        scale: 0.5,
-        height: 700
-      })
-      .then(function (group) {
-        kendo.drawing.pdf.saveAs(group, "flavor.pdf")
-        toastr.success("PDF Downloaded");
-      });
-  }
+  // $scope.ExportPdf = function () {
+  //   kendo.drawing
+  //     .drawDOM("#myCanvas", {
+  //       paperSize: "A4",
+  //       margin: {
+  //         top: "1cm",
+  //         bottom: "1cm"
+  //       },
+  //       scale: 0.5,
+  //       height: 700
+  //     })
+  //     .then(function (group) {
+  //       kendo.drawing.pdf.saveAs(group, "flavor.pdf")
+  //       toastr.success("PDF Downloaded");
+  //     });
+  // }
 
-  $scope.getUserData = function (QuotationForm) {
-    if (QuotationForm != null) {
-      QuotaFactory.set(QuotationForm);
-    }
-  }
+  // $scope.getUserData = function (QuotationForm) {
+  //   if (QuotationForm != null) {
+  //     QuotaFactory.set(QuotationForm);
+  //   }
+  // }
 
-  $scope.ExportText = function () {
-    var obj = {
-      serverList: $scope.serverList,
-      publicIPList: $scope.publicIPList,
-      iTrafficList: $scope.iTrafficList,
-      vpcList: $scope.vpcList,
-      vpnList: $scope.vpnList
-    };
-    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+  // $scope.ExportText = function () {
+  //   var obj = {
+  //     serverList: $scope.serverList,
+  //     publicIPList: $scope.publicIPList,
+  //     iTrafficList: $scope.iTrafficList,
+  //     vpcList: $scope.vpcList,
+  //     vpnList: $scope.vpnList
+  //   };
+  //   var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
 
-    var a = document.createElement('a');
-    a.href = 'data:' + data;
-    a.download = 'falvorJSON.txt';
-    a.innerHTML = 'download .txt file of flavor json';
-    a.click();
-    console.log("Downloading JSON Text File");
-    toastr.success("TextFile Downloaded");
+  //   var a = document.createElement('a');
+  //   a.href = 'data:' + data;
+  //   a.download = 'falvorJSON.txt';
+  //   a.innerHTML = 'download .txt file of flavor json';
+  //   a.click();
+  //   console.log("Downloading JSON Text File");
+  //   toastr.success("TextFile Downloaded");
 
-  }
+  // }
 
 });

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <!-- <div ng-Controller="clientFormController" class="container-fluid"> -->
+  <!-- <div ng-Controller="clientFormController" class="container-fluid"> -->
   <div class="card border-secondary " style="float:left; max-width: 70rem; max-height: 60rem;">
     <div class="card-header">Quotation Client</div>
     <div class="card-body text-secondary">
@@ -59,6 +59,25 @@
               </div>
             </div>
             <div class="form-row">
+              <div class="col-12">
+                <label for="clientAddress">Project Name</label><br>
+                <input type="text" ng-model="QuotataionForm.selectedProject" aria-required="true" required
+                  placeholder="Enter A Project Name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 dropdown">
+                <label for="selectedCoutnry">Select Your Country</label><br>
+                <select class="select-css" ng-model="QuotataionForm.clientCountry" aria-required="true" required>
+                  <option value="" selected disabled hidden>Country</option>
+                  <option ng-repeat="country in CountryList">{{country.name.common}}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 
+            <div class="form-row">
               <div class="col-12 dropdown">
                 <label for="selectedProject">Select Project</label><br>
                 <select class="select-css" ng-model="QuotataionForm.selectedProject" aria-required="true" required>
@@ -69,7 +88,8 @@
                 </select>
                 <hr />
               </div>
-            </div>
+            </div> -->
+
             <div class="form-row">
               <div class="col-12">
                 <a class="btn btn-block btn-outline-primary" ng-click="saveFormData(QuotataionForm); loadFormDetails()"
@@ -91,6 +111,9 @@
           <h5 class="card-title text-secondary"><b>Email:</b> {{clientEmail}}</h5>
           <h5 class="card-title text-secondary"><b>Phone:</b> {{clientPhone}}</h5>
           <h5 class="card-title text-secondary"><b>Address:</b> {{clientAddress}}</h5>
+          <h5 class="card-title text-secondary"><b>Country:</b> {{clientCountry}}</h5>
+
+
           <br>
           <h5 class="card-title text-secondary"><b>Project:</b> {{selectedProject}}</h5>
         </div>

@@ -1,22 +1,19 @@
-<div ng-Controller="QuotaController" class="container-fluid">
+<div class="container-fluid">
+  <!-- <div ng-Controller="clientFormController" class="container-fluid"> -->
   <div class="card border-secondary " style="float:left; max-width: 70rem; max-height: 60rem;">
     <div class="card-header">Quotation Client</div>
     <div class="card-body text-secondary">
       <h5 class="card-title" ng-if="!registeredClient && !registeredClientProc">No Quotation Client Has Been
         Registered. Please Register To Create A Quotation</h5>
-
       <div class="col-12">
         <a class="btn btn-block btn-outline-primary" ng-click="navToClientForm()" ng-if="!registeredClientProc">New
           Quotation Client</a>
       </div>
-
       <div class="col-12" ng-if="registeredClientProc && !registeredClient">
         <div>
-          <!-- class="main-content" style="justify-content: center;" -->
           <form class="form-register">
             <div class="form-row row">
               <div class="col-7">
-                <!-- Blank to cater for right shifting of the lower div -->
               </div>
               <div class="col-5">
                 <label for="QuoteDate">Quotation Date</label>
@@ -62,6 +59,25 @@
               </div>
             </div>
             <div class="form-row">
+              <div class="col-12">
+                <label for="clientAddress">Project Name</label><br>
+                <input type="text" ng-model="QuotataionForm.selectedProject" aria-required="true" required
+                  placeholder="Enter A Project Name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-12 dropdown">
+                <label for="selectedCoutnry">Select Your Country</label><br>
+                <select class="select-css" ng-model="QuotataionForm.clientCountry" aria-required="true" required>
+                  <option value="" selected disabled hidden>Country</option>
+                  <option ng-repeat="country in CountryList">{{country.name.common}}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 
+            <div class="form-row">
               <div class="col-12 dropdown">
                 <label for="selectedProject">Select Project</label><br>
                 <select class="select-css" ng-model="QuotataionForm.selectedProject" aria-required="true" required>
@@ -72,7 +88,8 @@
                 </select>
                 <hr />
               </div>
-            </div>
+            </div> -->
+
             <div class="form-row">
               <div class="col-12">
                 <a class="btn btn-block btn-outline-primary" ng-click="saveFormData(QuotataionForm); loadFormDetails()"
@@ -85,21 +102,20 @@
 
     </div>
     <div ng-if="registeredClient && registeredClientProc">
-      <!-- <table>
-        <tr ng-repeat="quoteField in QuotationForm">
-          <td>&nbsp;&nbsp;This:~{{quoteField}}</td>
-          <td>&nbsp;&nbsp;{{quoteField.clientName}}</td>
-          <td>&nbsp;&nbsp;{{quoteField.clientId}}</td>
-      </table> -->
       <div class="card mb-5" style="width: 50rem;">
         <div class="card-body text-dark container-fluid ml-3">
+          <h5 class="card-title text-secondary" style="text-align: right"><b>Quotation Date:</b> {{quoteDate}}</h5>
+          <h5 class="card-title text-secondary"><b>ID:</b> {{clientId}}</h5>
           <h5 class="card-title text-secondary"><b>Name:</b> {{clientName}}</h5>
           <h5 class="card-title text-secondary"><b>Company:</b> {{clientCompany}}</h5>
           <h5 class="card-title text-secondary"><b>Email:</b> {{clientEmail}}</h5>
           <h5 class="card-title text-secondary"><b>Phone:</b> {{clientPhone}}</h5>
           <h5 class="card-title text-secondary"><b>Address:</b> {{clientAddress}}</h5>
+          <h5 class="card-title text-secondary"><b>Country:</b> {{clientCountry}}</h5>
+
+
           <br>
-          <h5 class="card-title text-secondary"><b>Project:</b> {{selectedProject}}</v>
+          <h5 class="card-title text-secondary"><b>Project:</b> {{selectedProject}}</h5>
         </div>
       </div>
 
@@ -143,7 +159,7 @@
   <br><br><br><br>
   <hr />
 
-  <section class="details" style="float: left; background-color: rgb(175, 175, 175);">
+  <section class="details" style="float: left; background-color: rgb(175, 175, 175); width: 75%; max-height: 20em;">
     <h3>Disclaimer Notes:</h3>
     <br>
     <ol type="A">

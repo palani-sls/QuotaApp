@@ -1,15 +1,7 @@
-/* Variables */
-/* Styles */
-* {
-  box-sizing: border-box;
-}
-
-body,
 .block>div,
 .details a.follow strong {
   margin: 0;
   padding: 0;
-  
 }
 
 html,
@@ -26,7 +18,7 @@ body {
   letter-spacing: 0.5px;
   line-height: 1.4;
   color: #808080;
-    /* font-family: 'Helvetica', sans-serif;
+  /* font-family: 'Helvetica', sans-serif;
   background-color: #e7e7e7;
   color: #777; */
   padding: 30px 0;
@@ -146,7 +138,32 @@ h3 {
   margin: 0;
   color: black;
 }
-
+.block>div:nth-child(6):before {
+  content: "6";
+  width: 20px;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 15px 7.5px;
+  border-right: 1px solid rgba(128, 128, 128, 0.25);
+  margin: 0;
+  color: black;
+}
+.block>div:nth-child(7):before {
+  content: "7";
+  width: 20px;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 15px 7.5px;
+  border-right: 1px solid rgba(128, 128, 128, 0.25);
+  margin: 0;
+  color: black;
+}
 .block>div input+label {
   cursor: pointer;
   display: block;
@@ -489,37 +506,6 @@ p {
   margin-bottom: 2px;
 }
 
-/* .form-register .form-checkbox
-{
-    margin: 20px 0px 0px 0px;
-}
-.form-register .form-checkbox input{
-    margin-bottom: 0px;
-    width: auto;
-}
-
-.form-register .form-row .form-checkbox span{
-    font-size: 12px;
-    font-weight: normal;
-    text-align: left;
-    width: 220px;
-    margin: 0;
- } */
-
-/* .form-register button{
-    display: block;
-    background-color:  #f4511e;
-    border-radius: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-    padding: 10px 35px;
-    border: 0;
-    margin: 25px auto 0;
-    cursor: pointer;
-} */
-
-
 @media (max-width: 900px) {
 
   .form-register {
@@ -544,57 +530,198 @@ p {
     margin: 0 auto;
   }
 
-  /* .form-register .form-checkbox input{
-        display: inline-block;
-        margin-left: 0;
-    }
-
-    .form-register .form-checkbox span{
-        width: 200px !important;
-    } */
-
 }
 
 
 .select-css {
   display: block;
-  /* font-size: 16px; */
-  /* font-family: sans-serif; */
-  /* font-weight: 700; */
   color: rgb(97, 97, 97);
-  line-height: 1.3;
+  line-height: 1.1;
   padding: .6em 1.4em .5em .8em;
   width: 100%;
-  max-width: 100%; 
+  max-width: 100%;
   box-sizing: border-box;
   margin: 0;
   border: 1px solid #aaa;
-  /* box-shadow: 0 1px 0 1px rgba(0,0,0,.04); */
-  /* border-radius: .5em; */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
-  background-size: .65em auto, 100%;
+  background-size: .85em auto, 100%;
 }
+
 .select-css::-ms-expand {
   display: none;
 }
+
 .select-css:hover {
   border-color: #888;
 }
+
 .select-css:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 1px rgba(13, 14, 14, 0.7);
-  /* box-shadow: 0 0 1px 1px rgba(30, 139, 255, 0.7); */
   box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222; 
+  color: #222;
   outline: none;
 }
+
 .select-css option {
-  font-weight:normal;
+  font-weight: normal;
+}
+
+#accordion .panel {
+  border: none;
+  box-shadow: none;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#accordion .panel:after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: #e8e9ed;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+#accordion .panel:last-child:after {
+  display: none;
+}
+
+#accordion .panel-heading {
+  padding: 0;
+  border: none;
+  background: #fff;
+}
+
+#accordion .panel-title a {
+  display: block;
+  padding: 15px 20px 20px 70px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #217692;
+  position: relative;
+}
+
+#accordion .panel-title a:before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: #e8e9ed;
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+}
+
+#accordion .panel-title a:after {
+  content: "\f0c2";
+  font-family: FontAwesome;
+  font-weight: 900;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: #217692;
+  border: 2px solid #217692;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#accordion .panel-title a.collapsed:after {
+  background: #fff;
+  border: 2px solid #e8e9ed;
+  color: #cacddb;
+}
+
+#accordion .panel-body {
+  padding: 10px 20px 10px 70px;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  line-height: 25px;
+}
+
+.content {
+  position: absolute;
+  color: white;
+}
+
+.form-container {
+  position: absolute;
+  border: 1px solid;
+  border-color: white;
+  padding: 20px;
+  width: 800px;
+  margin-left: 160px;
+  -webkit-box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
+}
+
+.logo img {
+  float: center;
+  width: 350px;
+  height: auto;
+}
+
+.form-control {
+  background: transparent;
+  font-size: 15px;
+  color: black;
+}
+
+.address {
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.tbody {
+  color: black;
+}
+
+.tableRowColor {
+  color: black;
+}
+
+.container-box {
+  border: 2px solid #696969;
+}
+
+input {
+  width: 155px;
+  height: 35px;
+}
+
+select {
+  width: 155px;
+  height: 35px;
+  max-width: 155px;
+  max-height: 35px;
+  margin: 5px;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: left;
+}
+
+tr{
+  text-align: left;
 }

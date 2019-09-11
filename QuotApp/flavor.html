@@ -1,0 +1,524 @@
+<div class="container" ng-hide="Visible">
+  <h2>Build up your flavor</h2> <br /> <br />
+
+  <div>
+    <div>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" style="font-size:22px;" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Server
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <div class="row">
+                <div class=col-md-6>
+                  Server Name: <br />
+                  <input type="text" name="server" ng-model="serverName" /> <br /><br />
+                </div>
+                <div class="col-6">
+                  Server Site: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.site_name for option in serverSiteList.availableOptions track by option.id" ng-model="serverSiteList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+
+                  Environnment: <br />
+                  <select name="environment" id="environment" ng-options="option.env_name for option in environmentList.availableOptions track by option.id" ng-model="environmentList.selectedOption"></select>
+                  <br /><br />
+                </div>
+                <div class="col-6">
+                  Disk Type: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.disk_type for option in diskTypeList.availableOptions track by option.id" ng-model="diskTypeList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  CPU Size: <br />
+                  <input type="number" min="0" name="cpu" ng-model="cpuSize" /> <br /><br />
+                </div>
+                <div class="col-6">
+                  Memory Size: <br />
+                  <input type="number" min="0" name="memory" ng-model="memorySize" /> <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  Disk Size: <br />
+                  <input type="number" min="0" name="disk" ng-model="diskSize" /> <br /><br />
+                </div>
+                <div class="col-6">
+                  Public IP Quantity: <br />
+                  <input type="number" min="0" name="public_ip" ng-model="ipQty" /> <br /><br />
+                </div>
+              </div>
+              <button type="button" class="btn btn-info" ng-click="addServer()" name="add">ADD</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a class="collapsed" style="font-size:22px;" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Public IP
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  Server Site: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.site_name for option in serverSiteList.availableOptions track by option.id" ng-model="serverSiteList.selectedOption"></select>
+                  <br /><br />
+                </div>
+                <div class="col-6">
+                  Environnment: <br />
+                  <select name="environment" id="environment" ng-options="option.env_name for option in environmentList.availableOptions track by option.id" ng-model="environmentList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  Public IP Quantity: <br />
+                  <input type="number" min="0" name="ipQtty" ng-model="ipQtty" /> <br /><br />
+                </div>
+              </div>
+              <button type="button" class="btn btn-info" ng-click="addIPQty()" name="add">ADD</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a class="collapsed" style="font-size:22px;" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Internet Traffic
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  Server Site: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.site_name for option in serverSiteList.availableOptions track by option.id" ng-model="serverSiteList.selectedOption"></select>
+                  <br /><br />
+                </div>
+                <div class="col-6">
+                  Environnment: <br />
+                  <select name="environment" id="environment" ng-options="option.env_name for option in environmentList.availableOptions track by option.id" ng-model="environmentList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  Estimated Internet Traffic (GB): <br />
+                  <input type="number" min="0" name="estIntTraf" ng-model="internetTraffic" /> <br /><br />
+                </div>
+              </div>
+              <button type="button" class="btn btn-info" ng-click="addInternet()" name="add">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingT">
+            <h4 class="panel-title">
+              <a class="collapsed" style="font-size:22px;" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseT" aria-expanded="false" aria-controls="collapseT">
+                VPC
+              </a>
+            </h4>
+          </div>
+          <div id="collapseT" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingT">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  Server Site: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.site_name for option in serverSiteList.availableOptions track by option.id" ng-model="serverSiteList.selectedOption"></select>
+                  <br /><br />
+                </div>
+                <div class="col-6">
+                  Environnment: <br />
+                  <select name="environment" id="environment" ng-options="option.env_name for option in environmentList.availableOptions track by option.id" ng-model="environmentList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  VPC Quantity: <br />
+                  <input type="number" min="0" name="vpcQty" ng-model="vpcQty" /> <br /><br />
+                </div>
+              </div>
+              <button type="button" class="btn btn-info" ng-click="addVPC()" name="add">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a class="collapsed" style="font-size:22px;" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                VPN
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  Server Site: <br />
+                  <select name="serverSite" id="serverSite" ng-options="option.site_name for option in serverSiteList.availableOptions track by option.id" ng-model="serverSiteList.selectedOption"></select>
+                  <br /><br />
+                </div>
+                <div class="col-6">
+                  Environnment: <br />
+                  <select name="environment" id="environment" ng-options="option.env_name for option in environmentList.availableOptions track by option.id" ng-model="environmentList.selectedOption"></select>
+                  <br /><br />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  VPN Quantity: <br />
+                  <input type="number" min="0" name="vpnQty" ng-model="vpnQty" /> <br /><br />
+                </div>
+              </div>
+              <button type="button" class="btn btn-info" ng-click="addVPN()" name="add">ADD</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a class="collapsed" style="font-size:22px;" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Summary
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+              <div style="font-size:20px;">
+                Server <br />
+                <button type="button" style="margin:8px;" ng-repeat="server in serverList" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right"
+                  title="Site: {{server.site}}, Env: {{server.environment}}, DiskType: {{server.diskType}}, cpu: {{server.cpu}}, mem: {{server.mem}}GB, disk: {{server.disk}}GB, ipQty: {{server.ipQty}}" ng-model="server.name">Name: {{server.name}} <i
+                    class="fa fa-close" ng-click="deleteServer($index)"></i></button>
+              </div> <br />
+              <div style="font-size:20px;">
+                Public IP<br />
+                <button type="button" style="margin:8px;" ng-repeat="publicIP in publicIPList" class="btn  btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Site: {{publicIP.site}}, Env: {{publicIP.environment}}"
+                  ng-model="publicIP.quantity">Quantity: {{publicIP.quantity}} <i class="fa fa-close" ng-click="deleteIP($index)"></i></button>
+              </div> <br />
+              <div style="font-size:20px;">
+                Internet Traffic<br />
+                <button type="button" style="margin:8px;" ng-repeat="iTraffic in iTrafficList" class="btn  btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Site: {{iTraffic.site}}, Env: {{iTraffic.environment}}"
+                  ng-model="iTraffic.iTEstimate">Quota(GB): {{iTraffic.iTEstimate}} <i class="fa fa-close" ng-click="deleteInternet($index)"></i></button>
+              </div> <br />
+              <div style="font-size:20px;">
+                VPC<br />
+                <button type="button" style="margin:8px;" ng-repeat="vpc in vpcList" class="btn  btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Site: {{vpc.site}}, Env: {{vpc.environment}}" ng-model="vpc.quantity">Quantity:
+                  {{vpc.quantity}} <i class="fa fa-close" ng-click="deleteVPC($index)"></i></button>
+              </div> <br />
+              <div style="font-size:20px;">
+                VPN<br />
+                <button type="button" style="margin:8px;" ng-repeat="vpn in vpnList" class="btn  btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Site: {{vpn.site}}, Env: {{vpn.environment}}" ng-model="vpn.quantity">Quantity:
+                  {{vpn.quantity}} <i class="fa fa-close" ng-click="deleteVPN($index)"></i></button>
+              </div> <br />
+
+              <button type="button" class="btn btn-info" ng-click="saveFlavorData(serverList, publicIPList, iTrafficList, vpcList, vpnList); preview()" name="add">Preview</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-hide="IsVisible">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <button type="button" style="margin:8px;" class="btn btn-outline-secondary" ng-click="backToPrevious(serverDataList, ipDataList, internetDataList, vpcDataList, vpnDataList)">Back Previous</button>
+      </div>
+      <div class="col-6">
+        <button type="button" style="margin:8px;  position: absolute; right: 110px;" class="btn btn-outline-primary" ng-click="ExportPdf()">Export as PDF</button>
+        <button type="button" style="margin:8px;  position: absolute; right: 255px;" class="btn btn-outline-primary" ng-click="ExportText()">Export as Text</button>
+        <button type="button" style="margin:8px; position: absolute; right: 0px;" class="btn btn-outline-primary" ng-click="complete()">Complete</button>
+      </div>
+    </div>
+  </div>
+  <form id="myCanvas">
+    <div  class="container container-box">
+      ​
+      <div class="address">
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-8">
+            <p><b>A-31-9 Menara UOA Bangsar<br>
+                No.5, Jalan Bangsar Utama 1<br>
+                59000 Kuala Lumpur, Malaysia<br>
+                Phone: +603 2856 0519</b></p>
+          </div>
+          <div class="col-4">
+            <p><b>DATE:</b>{{QuotationForm.quoteDate}}<br>
+              <b>Quatation #:</b> ABCD-180101<br>
+              <b>rev:</b> 0<br>
+              <b>Customer ID:</b>{{QuotationForm.customerId}}</p>
+          </div>
+        </div>
+      </div>
+      ​
+      <div class="customer">
+        <b>Delivered To:</b><br>
+      </div>
+      <div class="row">
+        <div class="col-8">
+          <p><b>Name:</b> {{QuotationForm.clientName}}<br>
+            <b>Company:</b> {{QuotationForm.clientCompany}}<br>
+            <b>eMail:</b> {{QuotationForm.clientEmail}}<br>
+            <b>Phone:</b> {{QuotationForm.clientPhone}}<br>
+            <b>Address:</b> {{QuotationForm.clientAddress}}</p>
+        </div>
+        <div class="col-4">
+          <p><b>Quatation valid until:</b>{{}}<br>
+            <b>Prepared by:</b>{{infos.qouterInitial}}<br>
+        </div>
+      </div>
+      ​
+      <div class="customer">
+        <b>Project: </b>{{QuotationForm.selectedProject}}<br>
+        <br>
+      </div>
+      ​
+      <!-- <div class="container"> -->
+
+      <div ng-if='serverList != "" ' >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-success">
+
+            <th scope="col">Server</th>
+            <th scope="col">Site</th>
+            <th scope="col">Env</th>
+            <th scope="col">Disk Type</th>
+            <th scope="col">vCPU</th>
+            <th scope="col">Mem</th>
+            <th scope="col">Disk</th>
+            <th scope="col">Public IP</th>
+            <th scope="col">Unit Cost/hr</th>
+            <th scope="col">Est.Unit Cost/mo</th>
+            <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="server in serverList">
+            <td>{{server.name}}</td>
+            <td>{{server.site}}</td>
+            <td>{{server.environment}}</td>
+            <td>{{server.diskType}}</td>
+            <td>{{server.cpu}}</td>
+            <td>{{server.mem}}</td>
+            <td>{{server.disk}}</td>
+            <td>{{server.ipQty}}</td>
+            <td>{{server.hcost}}</td>
+            <td>{{server.mcost}}</td>
+            <td style="text-align:right;">{{server.tmcost}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div  ng-if='publicIPList != "" ' >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-success">
+
+
+            <th scope="col">Site</th>
+            <th scope="col">Env</th>
+            <th scope="col">Qty Pub IP</th>
+            <th scope="col">Public IP /hr</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="ip in publicIPList">
+            <td>{{ip.site}}</td>
+            <td>{{ip.environment}}</td>
+            <td>{{ip.quantity}}</td>
+            <td>{{ip.hcost}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right;">{{ip.tmcost}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div  ng-if='iTrafficList != "" ' >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-success">
+            <th scope="col">Site</th>
+            <th scope="col">Env</th>
+            <th scope="col">Estimated Internet Traffic</th>
+            <th scope="col">Network IN/OUT rate /GB</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="internet in iTrafficList">
+            <td>{{internet.site}}</td>
+            <td>{{internet.environment}}</td>
+            <td>{{internet.iTEstimate}}</td>
+            <td>{{internet.rate}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right;">{{internet.tmcost}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div  ng-if='vpcList != "" ' >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-success">
+            <th scope="col">Site</th>
+            <th scope="col">Env</th>
+            <th scope="col">Qty VPC</th>
+            <th scope="col">VPC /hr</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="vpc in vpcList">
+            <td>{{vpc.site}}</td>
+            <td>{{vpc.environment}}</td>
+            <td>{{vpc.quantity}}</td>
+            <td>{{vpc.hcost}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right;">{{vpc.tmcost}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div  ng-if='vpnList != "" ' >
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-success">
+            <th scope="col">Site</th>
+            <th scope="col">Env</th>
+            <th scope="col">Qty VPN</th>
+            <th scope="col">VPN Connection /hr</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="vpn in vpnList">
+            <td>{{vpn.site}}</td>
+            <td>{{vpn.environment}}</td>
+            <td>{{vpn.quantity}}</td>
+            <td>{{vpn.hcost}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:right;">{{vpn.tmcost}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div>
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td style="text-align:right;">{{getTotal()}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <!-- </div> -->
+      <div class="row">
+        <div class="col-10">
+          <br />
+          <p><b>Notes:</b> <br />
+            1. IaaS Service Location: Malaysia (Singapore Available on request) <br />
+            2. All pricing in MYR unless otherwise noted<br />
+            3. Taxes are additional and not included in this price quotation<br />
+            4. Quotes are for budgetary consideration only and based on: 730.5 hours per month <br />
+            5. Internal Network traffic between private subnets is unlimited<br />
+            6. Windows Server 2008/2012/2016 OS Licenses included in pricing (if required)<br /> </p><br />
+          <p>If you have any questions concerning this quotation, please contact: <br />
+            Murya Mahmud <br />
+            Phone: +60-12-888-8230 <br />
+            eMail: murya@silverliningsys.com <br /></p><br />
+        </div>
+      </div>
+      <h5 style="text-align:center;">THANK YOU FOR YOUR BUSINESS!</h5>
+
+    </div>
+  </form>
+</div>

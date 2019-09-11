@@ -1,0 +1,282 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <button type="button" style="margin:8px;" class="btn btn-outline-secondary" ng-click="backToPrevious(serverDataList, ipDataList, internetDataList, vpcDataList, vpnDataList)">Back Previous</button>
+    </div>
+    <div class="col-6">
+      <button type="button" style="margin:8px;  position: absolute; right: 0px;" class="btn btn-outline-primary" ng-click="ExportPdf()">Export as PDF</button>
+    </div>
+  </div>
+</div>
+<form id="myCanvas">
+  <div  class="container container-box">
+    ​
+    <div class="address">
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-8">
+          <p><b>A-31-9 Menara UOA Bangsar<br>
+              No.5, Jalan Bangsar Utama 1<br>
+              59000 Kuala Lumpur, Malaysia<br>
+              Phone: +603 2856 0519</b></p>
+        </div>
+        <div class="col-4">
+          <p><b>DATE:</b>{{QuotationForm.quoteDate}}<br>
+            <b>Quatation #:</b> ABCD-180101<br>
+            <b>rev:</b> 0<br>
+            <b>Customer ID:</b>{{QuotationForm.customerId}}</p>
+        </div>
+      </div>
+    </div>
+    ​
+    <div class="customer">
+      <b>Delivered To:</b><br>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <p>Name: {{QuotationForm.quoterName}}<br>
+          Company: {{QuotationForm.customerCompany}}<br>
+          eMail: {{QuotationForm.quoterEmail}}<br>
+          Phone: {{QuotationForm.quoterPhone}}<br>
+          Address: {{QuotationForm.address}}</p>
+      </div>
+      <div class="col-4">
+        <p><i>Quatation valid until:</i> April 1,2018<br>
+          <i>Prepared by:</i>{{infos.qouterInitial}}<br>
+      </div>
+    </div>
+    ​
+    <div class="customer">
+      <b>Project: </b>SLS IaaS Cloud<br>
+      <br>
+    </div>
+    ​
+    <!-- <div class="container"> -->
+
+    <div ng-if='serverList != "" ' >
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-success">
+
+          <th scope="col">Server</th>
+          <th scope="col">Site</th>
+          <th scope="col">Env</th>
+          <th scope="col">Disk Type</th>
+          <th scope="col">vCPU</th>
+          <th scope="col">Mem</th>
+          <th scope="col">Disk</th>
+          <th scope="col">Public IP</th>
+          <th scope="col">Unit Cost/hr</th>
+          <th scope="col">Est.Unit Cost/mo</th>
+          <th scope="col"></th>
+          <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="server in serverList">
+          <td>{{server.name}}</td>
+          <td>{{server.site}}</td>
+          <td>{{server.environment}}</td>
+          <td>{{server.diskType}}</td>
+          <td>{{server.cpu}}</td>
+          <td>{{server.mem}}</td>
+          <td>{{server.disk}}</td>
+          <td>{{server.ipQty}}</td>
+          <td>{{server.hcost}}</td>
+          <td>{{server.mcost}}</td>
+          <td></td>
+          <td style="text-align:right;">{{server.tmcost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div  ng-if='publicIPList != "" ' >
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-success">
+
+
+          <th scope="col">Site</th>
+          <th scope="col">Env</th>
+          <th scope="col">Qty Pub IP</th>
+          <th scope="col">Public IP /hr</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="ip in publicIPList">
+          <td>{{ip.site}}</td>
+          <td>{{ip.environment}}</td>
+          <td>{{ip.quantity}}</td>
+          <td>{{ip.hcost}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="text-align:right;">{{ip.tmcost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div  ng-if='iTrafficList != "" ' >
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-success">
+          <th scope="col">Site</th>
+          <th scope="col">Env</th>
+          <th scope="col">Estimated Internet Traffic</th>
+          <th scope="col">Network IN/OUT rate /GB</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="internet in iTrafficList">
+          <td>{{internet.site}}</td>
+          <td>{{internet.environment}}</td>
+          <td>{{internet.iTEstimate}}</td>
+          <td>{{internet.rate}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="text-align:right;">{{internet.tmcost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div  ng-if='vpcList != "" ' >
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-success">
+          <th scope="col">Site</th>
+          <th scope="col">Env</th>
+          <th scope="col">Qty VPC</th>
+          <th scope="col">VPC /hr</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="vpc in vpcList">
+          <td>{{vpc.site}}</td>
+          <td>{{vpc.environment}}</td>
+          <td>{{vpc.quantity}}</td>
+          <td>{{vpc.hcost}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="text-align:right;">{{vpc.tmcost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div  ng-if='vpnList != "" ' >
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-success">
+          <th scope="col">Site</th>
+          <th scope="col">Env</th>
+          <th scope="col">Qty VPN</th>
+          <th scope="col">VPN Connection /hr</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col" style="text-align:right;">Est. Cost/mo (MYR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="vpn in vpnList">
+          <td>{{vpn.site}}</td>
+          <td>{{vpn.environment}}</td>
+          <td>{{vpn.quantity}}</td>
+          <td>{{vpn.hcost}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="text-align:right;">{{vpn.tmcost}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total:</td>
+          <td style="text-align:right;">{{getTotal()}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- </div> -->
+    <div class="row">
+      <div class="col-10">
+        <br />
+        <p><b>Notes:</b> <br />
+          1. IaaS Service Location: Malaysia (Singapore Available on request) <br />
+          2. All pricing in MYR unless otherwise noted<br />
+          3. Taxes are additional and not included in this price quotation<br />
+          4. Quotes are for budgetary consideration only and based on: 730.5 hours per month <br />
+          5. Internal Network traffic between private subnets is unlimited<br />
+          6. Windows Server 2008/2012/2016 OS Licenses included in pricing (if required)<br /> </p><br />
+        <p>If you have any questions concerning this quotation, please contact: <br />
+          XXX YYYY <br />
+          Phone: +60-12-345-6789 <br />
+          eMail: XXXX@silverliningsys.com <br /></p><br />
+      </div>
+    </div>
+    <h5 style="text-align:center;">THANK YOU FOR YOUR BUSINESS!</h5>
+
+  </div>
+</form>
+</div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="QuotaApp">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="util.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+​
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form">
+					<span class="login100-form-avatar">
+						<img src="images/logo.gif" alt="AVATAR">
+					</span>
+​
+					<div class="wrap-input100 validate-input m-t-85 m-b-35">
+						<input class="input100" type="email" name="Email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+​
+					<div class="wrap-input100 validate-input m-b-50">
+						<input class="input100" type="text" name="reference">
+						<span class="focus-input100" data-placeholder="Reference No. (Existing User Only)"></span>
+					</div>
+​
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+​
+					<!-- <div class="col-12" ng-if="registeredClientProc && !registeredClient">
+        <div>
+          <form class="form-register">
+            <div class="form-row row">
+              <div class="col-7">
+              </div>
+              <div class="col-5">
+                <label for="QuoteDate">Quotation Date</label>
+                <input type="date" ng-model="QuotataionForm.quoteDate" aria-required="true" required>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientId">Client ID</label>
+                <input type="text" ng-model="QuotataionForm.clientId" aria-required="true" required style="width: 50px;"
+                  maxlength=3 placeholder="XYZ">
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientName">Client Name</label>
+                <input type="text" ng-model="QuotataionForm.clientName" aria-required="true" required
+                  placeholder="Enter Name Here">
+              </div>
+              <div class="col-6">
+                <label for="clientCompany">Client Company </label>
+                <input type="text" ng-model="QuotataionForm.clientCompany" aria-required="true" required
+                  placeholder="Enter Comapny Name">
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col-6">
+                <label for="clientEmail">Client Email</label>
+                <input type="text" ng-model="QuotataionForm.clientEmail" aria-required="true" required
+                  placeholder="abc@xyz.com">
+              </div>
+              <div class="col-6">
+                <label for="clientPhone">Client PhoneNo</label>
+                <input type="text" ng-model="QuotataionForm.clientPhone" aria-required="true" required
+                  placeholder="+60 -">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <label for="clientAddress">Client Address</label><br>
+                <input type="text" ng-model="QuotataionForm.clientAddress" aria-required="true" required
+                  placeholder="Enter Your Address">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <label for="clientAddress">Project Name</label><br>
+                <input type="text" ng-model="QuotataionForm.selectedProject" aria-required="true" required
+                  placeholder="Enter A Project Name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12 dropdown">
+                <label for="selectedCoutnry">Select Your Country</label><br>
+                <select class="select-css" ng-model="QuotataionForm.clientCountry" aria-required="true" required>
+                  <option value="" selected disabled hidden>Country</option>
+                  <option ng-repeat="country in CountryList">{{country.name.common}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-12">
+                <a class="btn btn-block btn-outline-primary" ng-click="saveFormData(QuotataionForm); loadFormDetails()"
+                  href="#AltMain">Register Quotation Client</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+​
+​
+	<!-- <div id="dropDownSelect1"></div> -->
+​
+<!--===============================================================================================-->
+<script src="vendor/jquery/js/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap-4.0.0-dist/js/popper.min.js"></script>
+	<script src="vendor/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+​
+</body>
+</html>

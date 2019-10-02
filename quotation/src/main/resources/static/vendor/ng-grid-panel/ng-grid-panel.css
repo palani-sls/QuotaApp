@@ -1,0 +1,79 @@
+grid-panel,
+.grid-panel {
+  display: block;
+}
+grid-panel grid-panel-item,
+.grid-panel grid-panel-item,
+grid-panel .grid-panel-item,
+.grid-panel .grid-panel-item {
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  margin: 35px 10px 10px 10px;
+  text-align: center;
+  border: 1px solid #EEEEEE;
+  border-radius: 10px;
+  min-height: 100px;
+  min-width: 100px;
+}
+
+grid-panel grid-panel-item > div {
+  position: relative;
+  margin: 5px;
+  min-height: 100px;
+  min-width: 100px;
+}
+
+grid-panel grid-panel-item > div > img {
+  position: absolute;
+  top:0;
+  left: 0;
+  right:0;
+  bottom:0;
+  margin: auto;
+  max-height: 100px;
+  max-width: 100px;
+}
+
+grid-panel grid-panel-content,
+.grid-panel grid-panel-content,
+grid-panel .grid-panel-content,
+.grid-panel .grid-panel-content {
+  display: block;
+  background-color: #f8f8f8;
+  border: 1px solid #BABABA;
+  padding: 10px;
+  margin-top: 30px;
+  min-height: 50px;
+  position: relative;
+}
+grid-panel grid-panel-content .triangle,
+.grid-panel grid-panel-content .triangle,
+grid-panel .grid-panel-content .triangle,
+.grid-panel .grid-panel-content .triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #BABABA;
+  position: relative;
+  margin-top: -11px;
+  top: -10px;
+  -webkit-transition: left ease-out 0.2s;
+          transition: left ease-out 0.2s;
+}
+grid-panel grid-panel-content .close-x,
+.grid-panel grid-panel-content .close-x,
+grid-panel .grid-panel-content .close-x,
+.grid-panel .grid-panel-content .close-x {
+  float: right;
+  margin: -15px 5px;
+  cursor: pointer;
+  font-size: 35px;
+}
+grid-panel grid-panel-content .close-x:before,
+.grid-panel grid-panel-content .close-x:before,
+grid-panel .grid-panel-content .close-x:before,
+.grid-panel .grid-panel-content .close-x:before {
+  content: "\00D7";
+}

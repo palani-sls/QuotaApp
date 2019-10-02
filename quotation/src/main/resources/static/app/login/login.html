@@ -1,0 +1,25 @@
+<!--login.html-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<div class="col-md-6 col-md-offset-3">
+    <h4 style="text-align:center;color:blue">Login</h4>
+    <form name="form" ng-submit="loginClick()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="email">email</label>
+            <input type="text" name="email" id="email" class="form-control" ng-model="vm.email" required />
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">email is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.referenceId.$dirty && form.referenceId.$error.required }">
+            <label for="referenceId">Reference Quotation Id</label>
+            <input type="text" name="referenceId" id="referenceId" class="form-control" ng-model="vm.referenceId" required />
+            <span ng-show="form.referenceId.$dirty && form.referenceId.$error.required" class="help-block">Referene quotation Id is required</span>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"  id="loo1" render="explicit" ></div>
+<input type="hidden" id="captcha-response" name="captcha-response" />
+        <div class="form-actions" layout="row">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///" /> <!-- truncated line -->
+            <span style="float:right">Not a member?<a href="#!/register" class="btn btn-link">Register</a></span>
+        </div>
+        ​
+    </form>
+</div>
